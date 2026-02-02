@@ -16,6 +16,16 @@ writeTarget.kit = true
 "isaacsim.core.api" = {}
 "isaacsim.gui.components" = {}
 "omni.kit.uiapp" = {}
+"omni.kit.pipapi" = {}
 
 [[python.module]]
 name = "test_extension_python"
+
+[python.pipapi]
+use_online_index = true
+requirements = [
+    "pyzmq==27.1.0"
+]
+modules = [
+    "zmq"
+]

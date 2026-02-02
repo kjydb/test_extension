@@ -16,6 +16,8 @@
 import asyncio
 import gc
 
+import zmq
+
 import omni
 import omni.kit.commands
 import omni.physx as _physx
@@ -53,6 +55,8 @@ class Extension(omni.ext.IExt):
     def on_startup(self, ext_id: str):
         """Initialize extension and UI elements"""
 
+        zmq.Context()
+
         self.ext_id = ext_id
         self._usd_context = omni.usd.get_context()
 
@@ -84,6 +88,8 @@ class Extension(omni.ext.IExt):
         self._physx_subscription = None
         self._stage_event_sub = None
         self._timeline = omni.timeline.get_timeline_interface()
+
+        print("Test extension initialized!")
 
     def on_shutdown(self):
         self._models = {}
